@@ -76,6 +76,8 @@ class FilterPlugin(BaseAdminPlugin):
         for p_key, p_val in lookup_params.iteritems():
             if p_val == "False":
                 lookup_params[p_key] = False
+            if isinstance(eval(p_val), (list, tuple)):
+                lookup_params[p_key] = eval(p_val)
         use_distinct = False
 
         # for clean filters
