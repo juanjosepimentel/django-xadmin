@@ -17,6 +17,7 @@ class ShowField(Field):
     def __init__(self, admin_view, *args, **kwargs):
         super(ShowField, self).__init__(*args, **kwargs)
         self.admin_view = admin_view
+        _class = style_manager.get_style(admin_view.style)
         if issubclass(_class, TableInlineStyle):
             self.template = "xadmin/layout/field_value_td.html"
 
